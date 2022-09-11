@@ -33,14 +33,29 @@ try:
   #   print("[INFO] Table created successfully")
 
   # insert 
-  with connection.cursor() as cursor:
-    cursor.execute(
-      """INSERT INTO users(first_name, nick_name) VALUES ('Ily', 'Elijah');"""
-    )
-    connection.commit()
-    print("[INFO] Data was successfully inserted")
+  # with connection.cursor() as cursor:
+  #   cursor.execute(
+  #     """INSERT INTO users(first_name, nick_name) VALUES ('Ily', 'Elijah');"""
+  #   )
+  #   connection.commit()
+  #   print("[INFO] Data was successfully inserted")
   
   # Get data from a table
+  # with connection.cursor() as cursor:
+  #   cursor.execute(
+  #     """SELECT nick_name from users WHERE first_name = 'Ily';"""
+  #   )
+  #   connection.commit()
+  #   print(cursor.fetchone())
+
+  # Drop a table
+  with connection.cursor() as cursor:
+    cursor.execute(
+      """DROP TABLE users;"""
+    )
+
+    connection.commit()
+    print('[INFO] Table was deleted')
 
 except Exception as _ex:
   print('[INFO] Error while with PostgreSQL', _ex)
